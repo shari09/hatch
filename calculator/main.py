@@ -25,25 +25,23 @@ class Screen:
     self.lines = ['']*self.numLines
 
   def add(self, value):
-    
+
     if len(self.lines[0]) * self.fontSize >= self.width-self.fontSize \
        or len(self.lines[1]) * self.fontSize >= self.width-self.fontSize:
       if (self.fontSize > 5):
         self.fontSize -= 1
       else:
         return
-    
+
+    #reset the screen if you typed a new digit
     if len(self.lines[1]) == 0 and value.isdigit():
       self.lines[0] = ''
     elif len(self.lines[1]) == 0 and not value.isdigit():
       self.lines[1] = self.lines[0]
 
     self.lines[0] += value
-    if value.isdigit():
-      self.lines[1] = str(eval(self.lines[0]))
+    self.lines[1] = evaluate(self.lines[0])
 
-
-    
   def evaluate(self):
     self.lines[0] = self.lines[1]
     self.lines[1] = ''
@@ -93,19 +91,20 @@ def addToScreen(value, screen):
     screen.add(value)
 
 
-buttons = []
-for i in range(3):
-  for j in range(1, 4):
-    buttons.append(Button(i*SIZE, j*SIZE, i+(j-1)*3+1))
-buttons.append(Button(0, 0, 0))
-buttons.append(Button(SIZE, 0, '.'))
-buttons.append(Button(2*SIZE, 0, '='))
-buttons.append(Button(3*SIZE, 0, '/'))
-buttons.append(Button(3*SIZE, SIZE, '*'))
-buttons.append(Button(3*SIZE, 2*SIZE, '-'))
-buttons.append(Button(3*SIZE, 3*SIZE, '+'))
-buttons.append(Button(-SIZE, 3*SIZE, 'C'))
-calcScreen = Screen(0, 4*SIZE, 4*SIZE, SIZE, 2)
+def evaluate(line):
+  closedBracket = True
+  for i in range(len(line)):
+    if (line[i] == '('):
+      closedBracket = False
+    elif (line[i] == ')'):
+      closedBracket = True
+  if (closedBracket 
+      and line[-1] != '+' 
+      and line[-1] != '-'
+      and line[-1] != '/'
+      and line[-1] != '*'):
+    return str(eval(line))
+  return 'Error'
 
 def check(x, y):
   turtle.clear()
@@ -119,9 +118,29 @@ def check(x, y):
 
 def displayAll():
   for button in buttons:
-      button.display()
+    button.display()
   calcScreen.display()
 
+
+#creating the buttons/screen
+buttons = []
+for i in range(3):
+  for j in range(1, 4):
+    buttons.append(Button(i*SIZE, j*SIZE, i+(j-1)*3+1))
+buttons.append(Button(0, 0, 0))
+buttons.append(Button(SIZE, 0, '.'))
+buttons.append(Button(2*SIZE, 0, '='))
+buttons.append(Button(3*SIZE, 0, '/'))
+buttons.append(Button(3*SIZE, SIZE, '*'))
+buttons.append(Button(3*SIZE, 2*SIZE, '-'))
+buttons.append(Button(3*SIZE, 3*SIZE, '+'))
+buttons.append(Button(-SIZE, 3*SIZE, 'C'))
+buttons.append(Button(-SIZE, 2*SIZE, '('))
+buttons.append(Button(-SIZE, SIZE, ')'))
+calcScreen = Screen(0, 4*SIZE, 4*SIZE, SIZE, 2)
+
+
+#main driving code
 displayAll()
 while True:
   screen.onclick(check)
