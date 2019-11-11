@@ -5,6 +5,10 @@ import turtle
 calculator = turtle.Turtle()
 screen = turtle.Screen()
 turtle.tracer(0, 0)
+
+turtle.hideturtle()
+calculator.hideturtle()
+
 calculator.penup()
 SIZE = 50
 
