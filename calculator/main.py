@@ -1,11 +1,11 @@
 #the most basic calculator made with Turtles
 #lots of functions can be added
-import turtle;
+import turtle
 
 calculator = turtle.Turtle()
 screen = turtle.Screen()
 turtle.tracer(0, 0)
-turtle.penup()
+calculator.penup()
 SIZE = 50
 
 class Screen:
@@ -48,19 +48,19 @@ class Screen:
 
 
   def display(self):
-    turtle.goto(self.x, self.y)
-    turtle.pendown()
+    calculator.goto(self.x, self.y)
+    calculator.pendown()
     for i in range(2):
-      turtle.forward(self.width)
-      turtle.left(90)
-      turtle.forward(self.height)
-      turtle.left(90)
-    turtle.penup()
+      calculator.forward(self.width)
+      calculator.left(90)
+      calculator.forward(self.height)
+      calculator.left(90)
+    calculator.penup()
     for lineIdx in range(len(self.lines)):
       lineLen = len(self.lines[lineIdx])
       for charIdx in range(lineLen):
-        turtle.goto(self.x+self.width - self.fontSize - self.fontSize*(lineLen-charIdx), self.y + self.numLines*self.lineHeight-(lineIdx+1)*self.lineHeight)
-        turtle.write(self.lines[lineIdx][charIdx], font=('Arial', self.fontSize, 'normal'))
+        calculator.goto(self.x+self.width - self.fontSize - self.fontSize*(lineLen-charIdx), self.y + self.numLines*self.lineHeight-(lineIdx+1)*self.lineHeight)
+        calculator.write(self.lines[lineIdx][charIdx], font=('Arial', self.fontSize, 'normal'))
 
 class Button:
   def __init__(self, x, y, value):
@@ -75,14 +75,14 @@ class Button:
       return True
 
   def display(self):
-    turtle.goto(self.x, self.y)
-    turtle.pendown()
+    calculator.goto(self.x, self.y)
+    calculator.pendown()
     for i in range(4):
-      turtle.forward(self.size)
-      turtle.left(90)
-    turtle.penup()
-    turtle.goto(self.x+self.size/2, self.y)
-    turtle.write(self.value, align='center', font=('Arial', 30, 'normal'))
+      calculator.forward(self.size)
+      calculator.left(90)
+    calculator.penup()
+    calculator.goto(self.x+self.size/2, self.y)
+    calculator.write(self.value, align='center', font=('Arial', 30, 'normal'))
 
 def addToScreen(value, screen):
   if value == '=':
@@ -107,7 +107,7 @@ def evaluate(line):
   return 'Error'
 
 def check(x, y):
-  turtle.clear()
+  calculator.clear()
   for button in buttons:
     if button.clicked(x, y):
       if button.value == 'C':
