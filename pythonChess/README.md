@@ -1,5 +1,5 @@
 #chess game
-#runs in terminal
+#runs with turtles graphics
 
 
 
