@@ -6,7 +6,6 @@ calculator = turtle.Turtle()
 screen = turtle.Screen()
 turtle.tracer(0, 0)
 
-turtle.hideturtle()
 calculator.hideturtle()
 
 calculator.penup()
@@ -17,10 +16,9 @@ class Screen:
     self.x = x
     self.y = y
     self.width = width
-    self.height = height
     self.fontSize = 10
     self.numLines = numLines
-    self.lineHeight = self.height//self.numLines
+    self.lineHeight = height//self.numLines
     self.height = self.lineHeight*self.numLines
     self.lines = ['']*self.numLines
 
@@ -30,8 +28,8 @@ class Screen:
 
   def add(self, value):
 
-    if len(self.lines[0]) * self.fontSize >= self.width-self.fontSize \
-       or len(self.lines[1]) * self.fontSize >= self.width-self.fontSize:
+    if (len(self.lines[0]) * self.fontSize >= self.width-self.fontSize 
+       or len(self.lines[1]) * self.fontSize >= self.width-self.fontSize):
       if (self.fontSize > 5):
         self.fontSize -= 1
       else:
@@ -102,8 +100,8 @@ def evaluate(line):
       closedBracket = False
     elif (line[i] == ')'):
       closedBracket = True
-  if (closedBracket 
-      and line[-1] != '+' 
+  if (closedBracket
+      and line[-1] != '+'
       and line[-1] != '-'
       and line[-1] != '/'
       and line[-1] != '*'):
