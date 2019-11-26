@@ -1,12 +1,5 @@
 import random
 
-def askNoun():
-  return input('Enter a noun: ')
-def askAdj():
-  return input('Enter an adjective: ')
-def askOther(string):
-  return input('Enter a(n) '+string+': ')
-
 userInput = ['']*22
 requirements = [
   ('adjective', 0),
@@ -45,4 +38,4 @@ Some of the animals are as {} as a(n) {}! There are baby {} who were born {} day
 ago, a petting zoo where you can feed the {} {}, and a(n) {} pool where {} go swimming. \
 There are {} and {} {} in the {} {} forest habitat, \
 and you can watch the zookeepers feed the {} {}. The gift shop has {} to wear, pictures of {} \
-and even snacks like {} you can bring home to remember your day at the zoo.'.format(*tuple(userInput)))
+and even snacks like {} you can bring home to remember your day at the zoo.'.format(*userInput))
