@@ -5,7 +5,6 @@ print('Enter the function:')
 print('e.g. y = 4*x^2')
 print('       = sin(pi*x)+5')
 print('(python math library allowed)')
-print('(vertical asymptotes will not graph properly)')
 equationStr = str(input("y = "))
 
 equationStr = equationStr.replace('^', '**')
