@@ -1,8 +1,0 @@
-{
-  "name": "p5_projects",
-  "version": "0.0.1",
-  "description": "mostly just drawings",
-  "dependencies": {
-    "p5": "^0.10.2"
-  }
-}
