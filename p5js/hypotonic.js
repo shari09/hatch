@@ -12,16 +12,19 @@ var Cell = function() {
   this.width = 200;
   this.height = 100;
   this.maxSize = SIZE;
+  this.numMoleculesInside = 0;
   this.grow = function() {
     this.width += 0.5;
     this.height += 0.5;
+    this.numMoleculesInside++;
     if (this.width >= this.maxSize || this.height >= this.maxSize) {
-      this.resetSize();
+      this.reset();
     }
   };
-  this.resetSize = function() {
+  this.reset = function() {
     this.width = 200;
     this.height = 100;
+    this.numMoleculesInside = 0;
   };
   this.display = function() {
     fill(232, 102, 102);
@@ -30,6 +33,8 @@ var Cell = function() {
       this.yPos, 
       this.width, 
       this.height);
+    fill(50);
+    text(this.numMoleculesInside, this.xPos, this.yPos);
   };
 };
 
