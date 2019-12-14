@@ -94,7 +94,7 @@ var generateApples = function() {
     apples.push(new Apple(Math.floor(Math.random()*SIZE/BLOCK_SIZE),
                           Math.floor(Math.random()*SIZE/BLOCK_SIZE)));
   }
-}
+};
 
 var moveSnake = function() {
   var head = snake.blocks[0];
@@ -119,6 +119,8 @@ var displayApples = function() {
 };
 
 var keyTyped = function() {
+  //hatch ide doesn't support one line if statements
+  //wrap the expressions in curly brackets
   if (key === 'a') snake.goLeft();
   else if (key === 'd') snake.goRight();
   else if (key === 'w') snake.goUp();
@@ -133,7 +135,7 @@ var draw = function() {
     displayApples();
     snake.display();
     timer++;
-    if (timer === 30) {
+    if (timer === 30) { //modify timer to be max 5 for hatch ide
       timer = 0;
       moveSnake();
     }
