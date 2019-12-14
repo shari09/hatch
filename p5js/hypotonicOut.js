@@ -1,30 +1,36 @@
 function setup() {
   createCanvas(SIZE, SIZE);
+  for (var i = 0; i < 100; i++) {
+    antibodies.push(new Antibody(
+      random(cell.xPos-50, cell.xPos+cell.height/2), 
+      random(cell.yPos-50, cell.yPos+cell.height/2)
+    ));
+  }
 }
 
 /////copy and paste the following for hatch
-var NUM_ANTIBODIES = 20;
+var NUM_ANTIBODIES = 3;
 var SIZE = 400;
 
 var Cell = function() {
   this.xPos = SIZE/2;
   this.yPos = SIZE/2;
-  this.width = SIZE/2;
-  this.height = SIZE/4;
-  this.maxSize = SIZE;
-  this.numMoleculesInside = 0;
-  this.grow = function() {
-    this.width += 0.5;
-    this.height += 0.5;
-    this.numMoleculesInside++;
-    if (this.width >= this.maxSize || this.height >= this.maxSize) {
+  this.width = SIZE;
+  this.height = SIZE/2;
+  this.minSize = 50;
+  this.numMoleculesInside = 100;
+  this.shrink = function() {
+    this.width -= 0.5;
+    this.height -= 0.5;
+    this.numMoleculesInside--;
+    if (this.width <= this.minSize || this.height <= this.minSize) {
       this.reset();
     }
   };
   this.reset = function() {
-    this.width = SIZE/2;
-    this.height = SIZE/4;
-    this.numMoleculesInside = 0;
+    this.width = SIZE;
+    this.height = SIZE/2;
+    this.numMoleculesInside = 100;
   };
   this.display = function() {
     fill(232, 102, 102);
@@ -42,12 +48,12 @@ var Antibody = function(xPos, yPos) {
   this.xPos = xPos;
   this.yPos = yPos;
   this.size = 5;
-  this.targetX = SIZE/2;
-  this.targetY = SIZE/2;
+  this.awayX = SIZE/2;
+  this.awayY = SIZE/2;
 
   this.move = function() {
-    this.xPos += this.targetX > this.xPos ? 1 : -1;
-    this.yPos += this.targetY > this.yPos ? 1 : -1;
+    this.xPos += this.awayX > this.xPos ? -1 : 1;
+    this.yPos += this.awayY > this.yPos ? -1 : 1;
   };
   this.collide = function(cell) {
     var left = cell.xPos - cell.width/2 + this.size;
@@ -62,6 +68,15 @@ var Antibody = function(xPos, yPos) {
     }
     return false;
   };
+  this.inScreen = function() {
+    if (this.xPos+this.size < 0
+        || this.xPos-this.size > SIZE
+        || this.yPos+this.size > SIZE
+        || this.yPos-this.size < 0) {
+      return false;
+    }
+    return true;
+  };
   this.display = function() {
     fill(200);
     ellipse(this.xPos, this.yPos, this.size, this.size);
@@ -71,38 +86,29 @@ var cell = new Cell();
 var antibodies = [];
 
 
-var checkCollision = function() {
-  antibodies.forEach(function(antibody) {
-    if (antibody.collide(cell)) {
-      cell.grow();
-    };
-  });
-};
-
-var removeCollided = function() {
-  antibodies = antibodies.filter(function(antibody) {
-    return !antibody.collide(cell);
-  });
-};
-
-var addAntibodies = function() {
-  if (antibodies.length < NUM_ANTIBODIES) {
-    antibodies.push(new Antibody(random(0, SIZE), random(0, SIZE)));
-  }
-};
 
 var displayAntibodies = function() {
   antibodies.forEach(function(antibody) {
     antibody.display();
     antibody.move();
   });
-}; 
+};
+
+// var checkCollision = function() {
+//   antibodies = antibodies.map(function(antibody) {
+//     if (!antibody.collide(cell)) {
+//       cell.shrink();
+//     }
+//     if (!antibody.inScreen()) {
+//       return;
+//     }
+//     return antibody;
+//   });
+// };
 
 var draw = function() {
   background(220);
   cell.display();
-  addAntibodies();
   displayAntibodies();
-  checkCollision();
-  removeCollided();
+  // checkCollision();
 };
