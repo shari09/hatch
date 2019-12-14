@@ -7,6 +7,7 @@ function setup() {
 ///////////
 
 var BLOCK_SIZE = 20;
+var numApples = 10;
 
 var Apple = function(xPos, yPos) {
   this.xPos = xPos;
@@ -89,7 +90,7 @@ var apples = [new Apple(0, 2)];
 var gameOver = false;
 
 var generateApples = function() {
-  if (apples.length < 3) {
+  if (apples.length < numApples) {
     apples.push(new Apple(Math.floor(Math.random()*SIZE/BLOCK_SIZE),
                           Math.floor(Math.random()*SIZE/BLOCK_SIZE)));
   }
@@ -101,7 +102,7 @@ var moveSnake = function() {
   apples = apples.filter(function(apple) {
     return !(head.xPos === apple.xPos && head.yPos === apple.yPos);
   });
-  if (apples.length !== pLen && pLen === 3) {
+  if (apples.length !== pLen && pLen === numApples) {
     snake.grow();
   } else {
     snake.move();
