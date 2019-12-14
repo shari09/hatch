@@ -1,8 +1,10 @@
 var SIZE = 400;
 
+////////ignore this for hatch ide
 function setup() {
   createCanvas(SIZE, SIZE);
 }
+///////////
 
 var BLOCK_SIZE = 20;
 
@@ -15,10 +17,6 @@ var Apple = function(xPos, yPos) {
             this.yPos*BLOCK_SIZE + BLOCK_SIZE/2, 
             BLOCK_SIZE, 
             BLOCK_SIZE);
-    // rect(this.xPos*BLOCK_SIZE,
-    //      this.yPos*BLOCK_SIZE,
-    //      BLOCK_SIZE,
-    //      BLOCK_SIZE);
   };
 };
 
@@ -96,8 +94,6 @@ var generateApples = function() {
                           Math.floor(Math.random()*SIZE/BLOCK_SIZE)));
   }
 }
-
-
 
 var moveSnake = function() {
   var head = snake.blocks[0];
