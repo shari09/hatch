@@ -135,7 +135,8 @@ var draw = function() {
     displayApples();
     snake.display();
     timer++;
-    if (timer === 30) { //modify timer to be max 5 for hatch ide
+    //modify timer to be max 5 for hatch ide
+    if (timer === 30) { 
       timer = 0;
       moveSnake();
     }
