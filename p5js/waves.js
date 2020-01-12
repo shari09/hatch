@@ -9,7 +9,6 @@ function setup() {
 
 // configuration //////////////////////
 
-// original waves:
 // amplitudes, in pixels
 var AMP    = [100, 50, -20];
 // waveLengths, in pixels
@@ -17,7 +16,7 @@ var WAVE_LENGTH = [360, 180, 100];
 // horizontal speeds, in pixels per loop
 var SPEED  = [3, 1, 2];
 
-
+//////////////////////////////////
 
 var OFFSET_Y = SIZE/2; 
 
