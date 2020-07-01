@@ -1,3 +1,5 @@
+#Diffusion Pseudocdoe
+
 `Molecule` (pass in: xPos, yPos, targetX, targetY):  
   Set `this.xPos` to xPos   
   Set `this.yPos` to yPos  
@@ -39,11 +41,13 @@ Create a function called `displayMolecules`(pass in: no args):
 
 Create the `draw` function():  
   Change the background to (220)  
-  Call the `displayMolecules` function  
+  Call the `displayMolecules` function
+
   ```javascript
     if (molecules.every(function(molecule) {
       return molecule.end()
     }));
   ```
+
   if every molecule in `molecules` are .end():  
     Call the `generateMolecules` function  
