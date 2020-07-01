@@ -23,7 +23,7 @@ var size = 40;
 ```
 > Name for the data that we store
 
-**Notes**
+**Notes**  
 -- Ask if they know what *x* is in math
 
 **Real life example:** *water bottle named Winnie* 
@@ -61,7 +61,7 @@ for (var numLaps = 0; numLaps < 10; numLaps++) {
 ```
 > Loops through a block of code a set number of times
 
-**Notes**
+**Notes**  
 -- n/a
 
 **Real life example:** *running around the school track field* 
@@ -92,7 +92,7 @@ while (sleeping) {
 ```
 > Loops through a certain block of code an unknown number of times while the condition is true
 
-**Notes**
+**Notes**  
 -- n/a
 
 **Real life example:** 
@@ -132,7 +132,7 @@ if (wearingRed) {
 ```
 > Used to make decisions according to a condition
 
-**Notes**
+**Notes**  
 -- n/a
 
 **Real life example:** 
@@ -159,7 +159,7 @@ var functionName = function(optionalParameters) {
 ```
 > A block of organized and reusable code that is used to perform a task
 
-**Notes**
+**Notes**  
 -- Does this look confusing? You feel like everything is everywhere and there's all the random vocabulary that makes no sense? Welp, don't worry, because ~~I honestly feel the same way~~
 
 **Real life example:** *do homework* 
@@ -226,7 +226,7 @@ var books = ['Harry Potter', 'Lightling Thief', 'Diary of a Wimpy Kid'];
 
 > Before when we learned about variables, we only learned to store one value. However, using arrays, we can store similar values altogether inside one variable.
 
-**Notes**
+**Notes**  
 -- n/a
 
 **Real life example:** *list of to-read books* 
@@ -267,8 +267,8 @@ var objectName = {
 
 >  Essentially a collection of related variables (note, not *just* related *values* as opposed to an array) 
 
-**Notes**
--- Everything around us is an object, and it has many properties. The same applies in programming.
+**Notes**  
+-- Everything around us is an object, and it has many properties. The same applies in programming.  
 -- The words `property`, `key`, `attribute` can be used interchangeably so you might see different words looking at different places. Just don't worry about them, they're all referring to the same thing. 
 
 **Real life example:** *water bottle* 
@@ -329,7 +329,7 @@ var constructorFunctionName = function(optionalParameter) {
 
 > New objects are created from a constructor using the `new` keyword
 
-**Notes**
+**Notes**  
 -- Ask them if they remember what object literals are
 
 **Real life example:** *Play-Doh molds* 
