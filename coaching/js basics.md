@@ -23,7 +23,7 @@ var size = 40;
 ```
 > Name for the data that we store
 
-**Notes**
+**Notes**  
 -- Ask if they know what *x* is in math
 
 **Real life example:** *water bottle named Winnie* 
@@ -36,7 +36,7 @@ var size = 40;
 > Convenient, example in coding is if we have a certain `size` that we want to reuse but don't want to type in the number each time 
 
 
-#### Exercises
+#### Exercise(s)
 - Hold the ball (draw multiple circles at different places with the same size)
 
 
@@ -61,18 +61,18 @@ for (var numLaps = 0; numLaps < 10; numLaps++) {
 ```
 > Loops through a block of code a set number of times
 
-**Notes**
+**Notes**  
 -- n/a
 
 **Real life example:** *running around the school track field* 
 - you are *looping* around the track field
-- Starting at `lap 0`, as long as you ran less than `10 laps`, you have to `run around`. Each time after you `ran 1 lap`, the total number of `laps ran is incremented by 1`
+- Starting at `lap 0`, as long as you ran less than `10 laps`, you have to `run around`. Each time after you `ran 1 lap`, the total number of `laps ran is increased by 1`
 
 > If we want the code to do the same thing, we can just put it inside a `for loop` rather than copying and pasting it `n times`
 
 > Convenient once you get to arrays (using loops to get every value in the array)
 
-#### Exercises
+#### Exercise(s)
 - Draw 10 dots across the screen with each dot being 10 pixels apart
 
 
@@ -92,12 +92,12 @@ while (sleeping) {
 ```
 > Loops through a certain block of code an unknown number of times while the condition is true
 
-**Notes**
+**Notes**  
 -- n/a
 
 **Real life example:** 
 - same as what the word `while` means in real life
-- while `blah blah blah is happening...`, you do `blah blah blah...`
+- while `something is happening...`, you do `some certain action...`
 - while you're sleeping, wear your pajamas
 
 > `While loop` are convenient if you are unsure of how many times a certain block of code have to run. For example, you can ask the user to input something, and let's say, `while` the user does not input the word `STOP`, you will continue asking for user input.
@@ -105,7 +105,7 @@ while (sleeping) {
 TODO: add a picture of what I mean for stacking circles
 
 
-#### Exercises
+#### Exercise(s)
 - Stack circles (draw circles on top of each other) of random size until you reach 200 in height
 - prompting `user for input`, `draws a circle` at a random location each time until the user inputs `STOP`
 
@@ -132,17 +132,17 @@ if (wearingRed) {
 ```
 > Used to make decisions according to a condition
 
-**Notes**
+**Notes**  
 -- n/a
 
 **Real life example:** 
 - Same as the while loop, it's just what `if` and `else` means in plain English 
-- `If` you are wearing a red shirt, do a jumping jack. `Else`, do a push up.
+- `If` you are wearing a red shirt, do a jumping jack. Or `else`, do a push up.
 
 > A lot of decisions in the code are made through conditions such as your mouse position, if something is greater than another, etc.
 
 
-#### Exercises
+#### Exercise(s)
 - Hold the ball - if your mouse is on the upper half of the screen, draw a rectangle. Otherwise, draw a circle.
 
 
@@ -151,15 +151,15 @@ if (wearingRed) {
 ## Functions
 
 ```javascript
-var functionName = function(optionalParameters) {
+var functionName = function(optionalParameters/input) {
   //do some cool stuff
-  //can use the parameters passed to the function
-  //optionally return a value
+  //can use the parameters/input passed to the function
+  //optionally return a value (number, word, letter, etc)
 };
 ```
 > A block of organized and reusable code that is used to perform a task
 
-**Notes**
+**Notes**  
 -- Does this look confusing? You feel like everything is everywhere and there's all the random vocabulary that makes no sense? Welp, don't worry, because ~~I honestly feel the same way~~
 
 **Real life example:** *do homework* 
@@ -210,7 +210,7 @@ var getCupcakes = function(flavour) {
 > Variables are convenient because they store a value that you can reuse in your code, but what if you want to reuse your instructions? That's where functions come in, they are just like variables, but instead of storing a value, they store a sequence of code that can be reused later.
 
 
-#### Exercises
+#### Exercise(s)
 - Draw Mickey Mouse, or any character that you like, at 5 different locations on the screen
 
 
@@ -226,13 +226,15 @@ var books = ['Harry Potter', 'Lightling Thief', 'Diary of a Wimpy Kid'];
 
 > Before when we learned about variables, we only learned to store one value. However, using arrays, we can store similar values altogether inside one variable.
 
-**Notes**
+**Notes**  
 -- n/a
 
 **Real life example:** *list of to-read books* 
-- an `array` of books that you will go through and read this summer
+- an `array` (list) of books that you will go through and read this summer
 
-> Usually, a `for loop` is used to loop through the `array`
+> Usually, a `for loop` is used to loop through an `array`. 
+
+> Array's elements are indexed starting from 0. So the first element's index will be 0, second is 1, third is 2, and so on. In this case, it is very convenient when we use a for loop because we can make the `counter` variable (which is usually `i`) start at `0` and `increases by 1` each time. Therefore, we can easily use `[i]`  to access an element.
 
 ```javascript
 var books = ['Harry Potter', 'Lightling Thief', 'Diary of a Wimpy Kid'];
@@ -248,7 +250,7 @@ for (var i = 0; i < books.length; i++) {
 ```
 
 
-#### Exercises
+#### Exercise(s)
 - an array to store similar shades of a colour. Maybe with the first element being the lightest shade and the last element being the darkest shade?
 
 
@@ -267,8 +269,8 @@ var objectName = {
 
 >  Essentially a collection of related variables (note, not *just* related *values* as opposed to an array) 
 
-**Notes**
--- Everything around us is an object, and it has many properties. The same applies in programming.
+**Notes**  
+-- Everything around us is an object, and it has many properties. The same applies in programming.  
 -- The words `property`, `key`, `attribute` can be used interchangeably so you might see different words looking at different places. Just don't worry about them, they're all referring to the same thing. 
 
 **Real life example:** *water bottle* 
@@ -307,7 +309,7 @@ var waterBottle = ['cylinder', 'clear', true, 'black', 24];
 > But how are we going to remember which property is at which index? Like it's so easy to forget that `'clear'` is talking about the bottle colour and not the lid colour. Unless you have a memory of a dolphin (which is extremely good), I'd recommend you to use an object in this case to save some trouble...
 
 
-#### Exercises
+#### Exercise(s)
 - Make a `ball` that has the properties `x, y, size, colour`
 
 
@@ -329,7 +331,7 @@ var constructorFunctionName = function(optionalParameter) {
 
 > New objects are created from a constructor using the `new` keyword
 
-**Notes**
+**Notes**  
 -- Ask them if they remember what object literals are
 
 **Real life example:** *Play-Doh molds* 
@@ -382,7 +384,7 @@ text(catPlaydoh.shape, 200, 200);
 
 If you made it this far, great! Because these are difficult to grasp concepts. Pssssss, don't tell others, but maybe some of the coaches here don't even understand constructors
 
-#### Exercises
+#### Exercise(s)
 - Make balls that has a method called `draw()` that draws themselves onto the screen
 
 #### Challenge
