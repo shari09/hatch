@@ -133,7 +133,7 @@ var draw = function() {
     fill(50);
     textSize(100);
     text('GAME', SIZE/2, SIZE/2);
-    text('OVER', SIZE/2, SIZE/4*3)
+    text('OVER', SIZE/2, SIZE/4*3);
   }
 
 };
